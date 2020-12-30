@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recommendations
+{% endblock %}
+
+
+{% block main %}
+<table class="table table-striped">
+
+    <p class="center bold">
+        Recommended for {{ firstname }}
+    </p>
+        <thead>
+            <tr>
+                <th class="leftalign">Title</th>
+                <th class="leftalign">Main Cast</th>
+                <th class="leftalign">Network</th>
+                <th class="rightalign">No. of Episodes</th>
+                <th class="rightalign">Year</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for drama in recommended %}
+                <tr>
+                    <td class="leftalign">{{ drama['english'] }}</td>
+                    <td class="leftalign">{{ drama['cast'] }}</td>
+                    <td class="leftalign">{{ drama['network'] }}</td>
+                    <td class="rightalign">{{ drama['episodes'] }}</td>
+                    <td class="rightalign">{{ drama['year'] }}</td>
+                </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+<p class="center bold">
+    Top 10 Most Popular
+</p>
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="leftalign">Title</th>
+                <th class="leftalign">Main Cast</th>
+                <th class="leftalign">Network</th>
+                <th class="rightalign">No. of Episodes</th>
+                <th class="rightalign">Year</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for drama in top10 %}
+                <tr>
+                    <td class="leftalign">{{ drama['english'] }}</td>
+                    <td class="leftalign">{{ drama['cast'] }}</td>
+                    <td class="leftalign">{{ drama['network'] }}</td>
+                    <td class="rightalign">{{ drama['episodes'] }}</td>
+                    <td class="rightalign">{{ drama['year'] }}</td>
+                </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="firstname" name="firstname" placeholder="First Name" type="text" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="lastname" name="lastname" placeholder="Last Name" type="text" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" id="password" placeholder="Password" type="password" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" id="confirmation" placeholder="Retype Password" type="password" required>
+        </div>
+        <button class="btn btn-primary" id="submit" type="submit" disabled>Register</button>
+    </form>
+
+<script>
+        // ensure that the submit button is disabled when no input is given
+        document.querySelector('#username').onkeyup = function() {
+            if (document.querySelector('#username').value === '' || document.querySelector('#password') === '' || document.querySelector('#confirmation') === '') {
+                document.querySelector('#submit').disabled = true;
+            } else {
+                document.querySelector('#submit').disabled = false;
+            }
+        }
+
+        document.querySelector('#password').onkeyup = function() {
+            if (document.querySelector('#username').value === '' || document.querySelector('#password') === '' || document.querySelector('#confirmation') === '') {
+                document.querySelector('#submit').disabled = true;
+            } else {
+                document.querySelector('#submit').disabled = false;
+            }
+        }
+
+        document.querySelector('#confirmation').onkeyup = function() {
+            if (document.querySelector('#username').value === '' || document.querySelector('#password') === '' || document.querySelector('#confirmation') === '') {
+                document.querySelector('#submit').disabled = true;
+            } else {
+                document.querySelector('#submit').disabled = false;
+            }
+        }
+    </script>
+{% endblock %}

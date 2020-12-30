@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Another Show
+{% endblock %}
+
+
+{% block main %}
+
+
+<form action="/add" method="post">
+
+    <div class="form-group">
+
+    <p class="center">
+        PLEASE CHECK THE TITLE OF THE DRAMA'S WIKIPEDIA PAGE
+    </p>
+
+            <input autocomplete="off" autofocus class="form-control" id="english" name="english" placeholder="Show's Name in English ACCORDING TO WIKIPEDIA" size="50" type="text" required>
+
+    <p></p>
+    <p class="center">
+        Check the keyword if it applies to the show. Then rate the drama from 0-10 for each of the categories.
+    </p>
+
+
+
+
+        <div>
+             <input type="checkbox" name="liked" id="liked" value="liked">  <label for="liked">First, though, did you like this show? If so, we'll use it when we build your profile.</label><br>
+
+        </div>
+
+            <p class="center">
+            Now the actual categories:
+        </p>
+
+
+<div>
+        {% for keyword in keywords %}
+              <input type="checkbox" name={{ keyword }} id={{ keyword }} value={{ keyword }}>  <label for={{ keyword }}>{{ keyword }}</label><br>
+        {% endfor %}
+
+</div>
+
+
+    <p class="center">
+        Now the ratings (from 0-10):
+    </p>
+
+
+
+    <div>
+             {% for rating in ratings %}
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" id={{ rating }} name={{ rating }} placeholder={{ rating }} type="number" min="0" max="10" size="50">
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+
+    </div>
+<button class="btn btn-primary" id="submit" name="submit" type="submit">Submit</button>
+
+</form>
+
+
+
+{% endblock %}
